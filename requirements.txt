@@ -4,3 +4,4 @@
 
 azure-cosmos
 pandas
+psycopg2
