@@ -33,11 +33,11 @@ cursor.execute(sql_text)
 res=cursor.execute("SELECT table_name, column_name, data_type FROM information_schema.columns")
 print(res)
 
-# #insert data into posgres table
-# for index, row in df.iterrows():       
-#     insert_query = 'INSERT INTO countries ('+ str(', '.join(df.columns))+ ') VALUES '+ str(tuple(row.values))
-#     print(insert_query)
-#     cursor.execute(insert_query)     
+#insert data into posgres table
+for index, row in df.iterrows():       
+    insert_query = 'INSERT INTO countries ('+ str(', '.join(df.columns))+ ') VALUES '+ str(tuple(row.values))
+    print(insert_query)
+    cursor.execute(insert_query)     
 
 #Fetch all rows from table
 cursor.execute("Select * from countries where country like 'india%';")
