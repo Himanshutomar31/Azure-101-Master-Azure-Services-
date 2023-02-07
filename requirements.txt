@@ -5,3 +5,5 @@
 azure-cosmos
 pandas
 psycopg2
+azure-storage-blob
+azure-identity
