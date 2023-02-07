@@ -15,6 +15,19 @@ def create_container(blob_service_client):
         raise exp
 
 
+def upload_blob(blob_service_client):
+    try:
+
+        with open("test.csv","w+") as f1:
+            f1.write("a,b,c,d")
+        file_path = r"test.csv"
+
+        blob_client = blob_service_client.get_blob_client(container="az-204-blob-storage", blob="test1.csv")
+        with open(file=file_path,mode="rb") as data:
+            blob_client.upload_blob(data)
+
+    except Exception as exp:
+        raise exp
 
 try:
     account_url = "https://blobaz204.blob.core.windows.net"
@@ -24,6 +37,8 @@ try:
     container_client = blob_service_client.get_container_client("az-204-blob-storage")
     if container_client.exists():
         print("Container exists")
+        #Logic to upload a blob
+        upload_blob(blob_service_client)
     else:
         print("Not Found")
         create_container(blob_service_client)
