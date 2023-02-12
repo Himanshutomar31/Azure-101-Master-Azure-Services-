@@ -1,20 +1,11 @@
 {
-  "scriptFile": "__init__.py",
   "bindings": [
     {
-      "authLevel": "Anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
+      "type": "eventGridTrigger",
+      "name": "event",
+      "direction": "in"
     }
-  ]
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
 }
