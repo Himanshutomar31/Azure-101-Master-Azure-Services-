@@ -1,4 +1,4 @@
-# DO NOT include azure-functions-worker in this file
+# DO NOT include azure-functions-worker in this filefunc 
 # The Python Worker is managed by Azure Functions platform
 # Manually managing azure-functions-worker may cause unexpected issues
 
@@ -8,3 +8,4 @@ psycopg2
 azure-storage-blob
 azure-identity
 azure-functions
+azure-eventgrid
