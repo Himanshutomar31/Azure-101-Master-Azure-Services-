@@ -1,0 +1,54 @@
+==Authenticate using Azure AD==
+
+=>Microsoft Identity Platform:
+It is an authentication service, open source libraries, and application management tools.
+When we talk about authentication service, there is something called as Azure Active Directory and a few other related products. 
+When we talk about open source libraries, there are things such as ADAL, MSAL, and more. 
+And when we talk about application management tools, there are so many, for example, threat protection. 
+
+authentication servics:At the heart of it is a product called as Azure Active Directory. Have you ever logged on to Office 365? Congratulations,
+                       you have already logged in to Azure Active Directory. Chances are that your organization, in one way or another, already 
+                       uses Azure AD or is going to use it sometime in the near future.. Azure AD doesn't just exist in a vacuum. There are a bunch of other products that support it. 
+					   For example, if you're on-premises and use Active Directory on-premises, 
+					   then chances are that you have used something called as Azure AD Connect to synchronize these on-premises identities into the cloud.
+					   
+open source libraries: 
+					- MSAL (Microsoft Authentication Library)
+					- Microsoft.Identity.Web
+					  But there are platforms that Microsoft doesn't provide in MSAL for. 
+					  The good news is that Azure Active Directory is OpenID Connect compliant, 
+					  which means if Microsoft doesn't provide a library for a certain platform, 
+					  let's say Ruby, Ruby on Rails, for example, is a popular platform. Microsoft does not currently have an MSAL for Ruby on Rails, 
+					  but there are open source or Open ID Connect certified libraries available for Ruby on Rails, and you're welcome to use them
+					
+
+application management:
+					- Gallery(Dropbox popular ones) and non-gallery app(SAML).
+					- Single Tenant and multi Tenant apps
+					- Authorization
+					- Consent
+					- Logs
+					
+Modern Authentication:
+					  WS-*, SAML
+					  OAuth
+					  OpenID connect 
+					  
+
+register an App in Azure AD
+go to AD > app registrations 
+ Delegated permissions -> Your application needs to access the API as the signed-in user . 
+ Application permissions -> Your application runs as a background service or daemon without a signed-in user.
+ Manifest-> is a JSON representation of App.
+ 
+ 
+ 
+ Authorization 
+ -> what you can do 
+ -> Entities : App 
+             : User
+			 
+  -> authorization: Groups, Custom claims [Information we put on ID token],  App roles 
+  
+Groups Authorization For Apps
+lets say we have two apps app1 and app2, app1 wants to communicate with app2 then we can go to app2 and click on tab expose API
