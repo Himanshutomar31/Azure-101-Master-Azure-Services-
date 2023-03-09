@@ -1,0 +1,78 @@
+==========================
+==== Azure Cosmos DB =====
+==========================
+
+-> Multi model database
+-> Low latency access to data 
+-> Instant replication of data across regions 
+-> Scales on demand 
+-> Fully managed and serverless
+
+-> Provides 99.999% availability for reads and writes
+-> Ability to scale from thousands to hundreds of millions request/sec
+-> Cosmos DB guarantees less than 10-ms latencies for reads and indexed writes at 99th percentile.
+-> Work with various API's - SQL, MongoDB, Cassandra, Gremlin and Table 
+  
+  
+                             -> Partition Key 
+Database ID -> Collection ID -> Unique Key
+                             -> Throughput
+							 
+Throughput
+-> This ensure CosmosDB allocates the right resources.
+-> The throughput is a combined measure of CPU, Memory and IOPS
+-> Helps have an even measure no matter which API you choose
+-> The throughput is measured in Request Units
+-> The cost to read a 1 KB item is 1 Request Unit.
+-> Billing is done on a hourly basis.
+
+
+
+==SQL API==
+The Azure Cosmos DB SQL API allows one to query JSON documents using Structured Query Language.
+Since this language is familiar with a lots of developers, it makes it easy to query the data in an azure cosmosDB databases.
+
+Choosing the right partition keys 
+-> The partition keys should be chosen in such a way that read operations minimize cross-partition look ups 
+-> The partition keys should be chosen in such a way that write opeartions are evenly distributed across different partition keys value.
+-> Also partition key must be a field present when querying for the data in the database.
+-> Also note that each item in a container in a database contains an item ID. This is unique within a logical partitions. The combination of the 
+   partition key and the item ID helps to create the items index which helps to uniquely identify the items.
+   
+
+ 
+
+create an azure cosmosDB account 
+Notebook[] Core SQL 
+
+SQL API => Container => []
+Table API => Entity => two important properties => partition key + row key 
+
+cli commands 
+az cosmodb create 
+-> you provide the name and resource group
+-> --default-consistency-level {BoundedStaleness, ConsistentPrefix, Eventual, Session, Strong}
+-> --kind {GlobalDocumentDB, MangoDB, Parse }
+
+
+Consistency Level 
+->  In order to maintain high availability for your data, multiple copies of your data is made within a particular region.
+->  Strong, BoundedStaleness[Maximum K version the lag], Session[single clint session], ConsistentPrefix[always in order], Eventual
+->  Default Consistency level is session consistency 
+
+
+Stored Procedure:
+-> A stored procedure can be used to perform an operation on a Comos DB collection.
+-> Instead of performing that opeartions directly from a program, you can invoke a stored procedure to carry out the operation.
+-> The stored procedure in CosmosDB is written in JavaScript.
+-> The stored procedure is registered and executed against a collection and runs as a single transaction.
+
+Triggers:
+-> Triggers allow you to perform an action either before or after an operation occurs on cosmosDB collection.
+-> The operation can include the creation, deletion and replacement of a document.
+-> The triggers are written in JabsScripts.
+-> we can create both pre-triggers and post-triggers.
+
+
+
+
