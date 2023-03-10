@@ -1,0 +1,124 @@
+=============
+Azure CDN
+=============
+If a request is made from a user to Azure CDN endpoint, the request it sent to the closet point of persence. This would be the closest to the location of the user.
+If the edge server in the point of persence doesn't have the resource, then the edge server will contact the origin server to get the resource.
+The resoure is cached on the edge server and also sent to the user.
+The resource will be cached in the point of persence based on TTL.
+If the subsequent requests are made to the same resource and if it results in the same point of persence, then the resource will be delivered from the cache.
+
+
+Creating A CDN 
+-> You first need to create a CDN profile.
+-> You then create a CDN endpoint- Existing web apps, storage account, cloud service or custom  origin.
+-> You can attach multiple endpoints to the profile
+
+
+Caching
+Caching rules are only available for the caching tiers of Azure CDN Standard from version and Azure CDN standard from Akamai.
+You can create caching rules that apply to the entire profile or just the endpoints.
+You can  also control caching based on query string.
+
+Rules for caching:
+-> Ignore query strings - This is the default mode. Here the Point of persence will cache the resource but will ignore query strings for retrieving from the cache.
+-> Bypass caching for query strings - Here if the request contains query strings, the requests will be directed to the origin server.
+-> Cache every unique URL.
+
+
+Steps For CDN:
+-> Create a CDN Profile.
+-> Create a CDN Endpoint to an existing Azure app service.
+
+
+==============
+Azure Redis
+==============
+-> Based on the Redis Software
+-> Used to cache data 
+-> Allows faster access to frequently requested data.
+-> Don't load all your database items into Azure Redis.
+-> Store Redis to storing user session data.
+-> Azure Redis can also be used as a message queue.
+-> Hence, it can be used for distributed applications.
+
+
+====================
+Application Insight
+====================
+-> Application Performance Management Service
+-> Used for a variety of purposes
+-> Help you monitor your live application.
+-> Can help debug issues for your applications.
+-> For your application, you have to install an instrumentation package.
+-> That package will integrate with your application and send telemetry data to Application Insights.
+-> you can also enable Application Insights for existing Azure resources such as Azure Web Apps, Azure Functions.
+-> you can see aspects such as requests rates, response times and failure rates for the various pages in your application.
+-> Get exceptions and stack traces 
+-> Get user and session counts 
+-> Get trace events from your applications.
+--> Funnels
+-> This can be used to see how well your application is being used.
+-> The percentage of users going to the different parts of your applications.
+-> The number of users hitting the various web pages 
+--> User Flows 
+-> How do users navigate away from a page on your site.
+-> What do users click on a page on your site.
+-> Are there places where users repeat the same action over and over
+--> Impact
+-> How does the page load time impact the user's navigation 
+-> If the page is slow, does it affect how the user navigates through the application.
+--> Retention
+-> Gives statistics as to how many users return to your application 
+-> Do users ever return back after completing a particular task.
+
+
+=====================
+Azure Monitor
+=====================
+-> This is a monitporing service that can be used for collecting, analysing and acting on telemetry for cloud and on-premise environments.
+-> There are many tools available in Azure Monitor
+-> You can detect and diagnose issues across applications and dependencies with Application Insight.
+-> You can store and drill into monitoring data using /log Analytics 
+-> You can create visualizations using Azure dashboards and webhook
+-> The data collected by Azure Monitor is segregated into metrics and logs.
+-> Metrics are point in time value.
+-> Logs are records that can reside in a Log Analytics workspace.
+-> The Azure Monitor service uses a vaesion of Kusto query language that acn be used in the Azure Data Explorer to build queries on your data.
+-> Azure Monitor collects data in the folowing tiers:
+--> Application Monitoring data: This is data about the performance and functionality of application code.
+--> Guest OS monitoring data: This is data about underlying OS on which application is running on.
+--> Azure resource monitoring data: This is monitoring data for azure resources.
+--> Azure subscription monitoring data: This is data collected about the operation and management of the Azure subscription.
+--> Azure tenant monitoring data: This is data collected about the tenant such as Azure Active Directory.
+
+
+  
+=====================
+Azure Front Door
+=====================
+-> This is a routing tool for web traffic that works on Layer 7 or Http/Https.
+-> The Front Door service is optimized in such a way that client requests will be routed to the fastest and most available application backend.
+-> The application backend can be any Internet-facing service that is hosted inside or outside of azure.
+Features:
+-> URL-based routing
+-> Routing methods ex-priority
+-> Multiple-site hosting [Here we can configure more than one web site on the same Front Door configurations]
+-> Session affinity [Here you can ensure the same user session is mapped to the same application backend.
+-> Secure Sockets Layer(SSL) termination: Here the secure request can be terminated at the front door itself. This reduces the load on the application backend.
+-> Web Application Firewall: You can also enable web application firewall to protect ur web application against internet based attacks.
+
+
+====================
+Transient Faults
+====================
+-> Aspects to consider when handling fault
+-> Understanding platform related issues.r
+-> General guidline for handling faults.
+-> Faults can occur on the underlying infrasture that supports the Azure platform.
+-> you could have a momentary loss of network connectivity.
+-> There could be a temporary unavailability of a service.
+-> Your application could experience timeouts if a service is busy.
+-> your application should be able to detect faults when they occur.
+-> Some SDK's have a mechanism inbuilt for working with transient faults.
+-> The SDK might try to access a problematic serve after a period of time.
+
